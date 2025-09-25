@@ -1,4 +1,4 @@
-name: "Minecraft Bedrock Server"
+name: "Minecraft Bedrock Servers"
 version: "1.0.0"
 slug: "mcbedrock"
 description: "Bedrock server via itzg image"
