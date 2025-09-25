@@ -1,0 +1,40 @@
+name: "Minecraft Bedrock Server"
+version: "1.0.0"
+slug: "mcbedrock"
+description: "Bedrock server via itzg image"
+arch:
+  - aarch64
+startup: services
+boot: auto
+ports:
+  19132/udp: 19132
+image: "itzg/minecraft-bedrock-server:latest"
+
+# Optional: expose a few settings in the UI
+options:
+  server_name: "My Bedrock on HA"
+  gamemode: "survival"
+  difficulty: "normal"
+  level_name: "world"
+  max_players: 10
+  online_mode: true
+  white_list: false
+
+schema:
+  server_name: str
+  gamemode: list(survival|creative|adventure|spectator)
+  difficulty: list(peaceful|easy|normal|hard)
+  level_name: str
+  max_players: int
+  online_mode: bool
+  white_list: bool
+
+# Map options -> env vars expected by itzg image
+environment:
+  SERVER_NAME: "!secret server_name?{{server_name}}"
+  GAMEMODE: "{{gamemode}}"
+  DIFFICULTY: "{{difficulty}}"
+  LEVEL_NAME: "{{level_name}}"
+  MAX_PLAYERS: "{{max_players}}"
+  ONLINE_MODE: "{{online_mode}}"
+  WHITE_LIST: "{{white_list}}"
