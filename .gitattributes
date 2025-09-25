@@ -1,5 +1,12 @@
-# Auto detect text files and perform LF normalization
+# Ensure everything defaults to LF
 * text=auto eol=lf
+
+# YAML and JSON must always be LF
 *.yaml text eol=lf
-*.yml text eol=lf
+*.yml  text eol=lf
 *.json text eol=lf
+
+# Markdown, shell scripts, Dockerfiles too
+*.md   text eol=lf
+*.sh   text eol=lf
+Dockerfile text eol=lf
