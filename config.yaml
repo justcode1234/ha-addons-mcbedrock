@@ -3,8 +3,11 @@ version: "1.0.0"
 slug: "mcbedrock"
 description: "Minecraft Bedrock Server running inside Home Assistant OS"
 arch:
+  - amd64
   - aarch64
+  - armhf
   - armv7
+  - i386
 startup: services
 boot: auto
 ports:
